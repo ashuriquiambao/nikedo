@@ -1,441 +1,906 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover NIKEDO, a student-developed DIY laptop innovation exploring automation, user awareness, and a more convenient computing experience.">
 
-    <title>NIKEDO | About</title>
+    <title>NIKEDO | About Us</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --background: #0f0f14;
+            --surface: #15151d;
+            --surface-light: #1b1b26;
+            --border: #292936;
+            --pink: #ff5fa2;
+            --pink-hover: #ff82b6;
+            --text: #ffffff;
+            --muted: #c7c7d1;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #0f0f14;
-            color: white;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* NAVIGATION */
 
         nav {
-            background: #15151d;
-            border-bottom: 1px solid #292936;
-            padding: 18px 8%;
-
+            background: rgba(21, 21, 29, 0.97);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
+            gap: 20px;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
+            backdrop-filter: blur(12px);
         }
-
-        /* CLICKABLE LOGO */
 
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
-
-            color: #ff5fa2;
-
+            color: var(--pink);
             font-size: 24px;
             font-weight: bold;
-
             text-decoration: none;
-
-            cursor: pointer;
-
             transition: 0.3s;
+            flex-shrink: 0;
         }
 
         .logo:hover {
             transform: translateY(-2px);
-        }
-
-        .logo:hover span {
-            color: #ff82b6;
+            color: var(--pink-hover);
         }
 
         .nav-logo {
             width: 42px;
             height: 42px;
-
             object-fit: contain;
-
             border-radius: 8px;
         }
 
-        /* NAVIGATION LINKS */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
 
-        nav a {
-            color: white;
-
+        .nav-links a {
+            color: #e8e8ee;
             text-decoration: none;
-
-            margin-left: 25px;
-
-            transition: 0.3s;
+            font-size: 14px;
+            transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #ff5fa2;
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--pink);
         }
 
-        /* =========================
-           ABOUT HERO
-        ========================= */
+        .nav-links a.active {
+            font-weight: bold;
+        }
+
+        /* HERO */
 
         .hero {
+            position: relative;
+            overflow: hidden;
             text-align: center;
+            padding: 100px 22px 75px;
+            background:
+                radial-gradient(
+                    ellipse at top,
+                    rgba(255, 95, 162, 0.13),
+                    transparent 65%
+                );
+        }
 
-            padding: 80px 20px 50px;
+        .eyebrow {
+            display: inline-block;
+            color: var(--pink);
+            border: 1px solid rgba(255, 95, 162, 0.35);
+            background: rgba(255, 95, 162, 0.07);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
-            color: #ff5fa2;
+            color: var(--text);
+            font-size: clamp(38px, 6vw, 58px);
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
 
-            font-size: 45px;
-
-            margin-bottom: 15px;
+        .hero h1 span {
+            color: var(--pink);
         }
 
         .hero p {
-            color: #ccc;
-
-            max-width: 700px;
-
-            margin: auto;
-
-            line-height: 1.7;
-
-            font-size: 18px;
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.9;
         }
 
-        /* =========================
-           ABOUT SECTION
-        ========================= */
+        .hero-line {
+            width: 75px;
+            height: 4px;
+            background: var(--pink);
+            border-radius: 10px;
+            margin: 30px auto 0;
+        }
+
+        /* GENERAL SECTIONS */
 
         .section {
-            max-width: 1000px;
-
-            margin: 30px auto;
-
-            padding: 20px;
+            width: min(1080px, 90%);
+            margin: 0 auto;
+            padding: 35px 0;
         }
 
-        .box {
-            background: #15151d;
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
 
+        .section-heading .mini-title {
+            display: block;
+            color: var(--pink);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* INTRODUCTION */
+
+        .intro-card {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 35px;
+            background: linear-gradient(
+                135deg,
+                #191923,
+                #13131b
+            );
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 38px;
+        }
+
+        .intro-card h2 {
+            font-size: 29px;
+            line-height: 1.35;
+            margin-bottom: 18px;
+        }
+
+        .intro-card h2 span {
+            color: var(--pink);
+        }
+
+        .intro-card p {
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .intro-visual {
+            min-height: 250px;
+            border-radius: 16px;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 95, 162, 0.16),
+                    transparent 70%
+                ),
+                var(--surface-light);
+            border: 1px solid #343443;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .intro-visual .visual-icon {
+            font-size: 65px;
+            margin-bottom: 12px;
+        }
+
+        .intro-visual h3 {
+            color: var(--pink);
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+        .intro-visual p {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* PROJECT VALUES */
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .value-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 27px;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 95, 162, 0.6);
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 95, 162, 0.1);
+            border: 1px solid rgba(255, 95, 162, 0.2);
+            border-radius: 12px;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .value-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* MISSION AND VISION */
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .mission-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--pink);
+            border-radius: 14px;
             padding: 30px;
-
-            border-radius: 15px;
-
-            margin-bottom: 25px;
-
-            border: 1px solid #252530;
         }
 
-        .box h2 {
-            color: #ff5fa2;
+        .mission-card h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
 
+        .mission-card p {
+            color: var(--muted);
+        }
+
+        /* HOW IT WORKS */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 23px 18px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--pink);
+            color: #17111a;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .step-card h3 {
+            font-size: 16px;
+            margin-bottom: 9px;
+        }
+
+        .step-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .prototype-note {
+            margin-top: 20px;
+            padding: 16px 20px;
+            border-radius: 10px;
+            background: rgba(255, 95, 162, 0.06);
+            border: 1px solid rgba(255, 95, 162, 0.2);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .prototype-note strong {
+            color: var(--pink);
+        }
+
+        /* WHO WE ARE */
+
+        .team-message {
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                #191923,
+                #14141c
+            );
+            border: 1px solid var(--border);
+            padding: 38px;
+            border-radius: 18px;
+        }
+
+        .team-message h2 {
+            color: var(--pink);
+            font-size: 29px;
             margin-bottom: 15px;
         }
 
-        .box p {
-            color: #ddd;
-
-            line-height: 1.8;
+        .team-message p {
+            color: var(--muted);
+            max-width: 780px;
+            margin: 0 auto 13px;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* CALL TO ACTION */
+
+        .cta {
+            text-align: center;
+            padding: 55px 25px;
+            margin: 25px auto 70px;
+            width: min(1080px, 90%);
+            border: 1px solid rgba(255, 95, 162, 0.25);
+            border-radius: 20px;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(255, 95, 162, 0.12),
+                    transparent 75%
+                ),
+                var(--surface);
+        }
+
+        .cta h2 {
+            font-size: clamp(25px, 4vw, 34px);
+            margin-bottom: 13px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: var(--pink);
+            color: #17111a;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--pink-hover);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
 
         footer {
             text-align: center;
-
-            padding: 30px;
-
-            color: #888;
-
-            background: #15151d;
+            padding: 28px 20px;
+            color: #888895;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            font-size: 13px;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        footer span {
+            color: var(--pink);
+            font-weight: bold;
+        }
 
-        @media (max-width: 700px) {
+        /* RESPONSIVE DESIGN */
 
+        @media (max-width: 850px) {
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-links {
+                gap: 17px;
+            }
+
+            .intro-card {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
             nav {
                 flex-direction: column;
-
-                gap: 15px;
+                gap: 12px;
+                padding: 12px 4%;
             }
 
-            nav a {
-                margin-left: 8px;
-
-                margin-right: 8px;
+            .logo {
+                font-size: 22px;
             }
 
-            .hero h1 {
-                font-size: 35px;
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 19px;
             }
 
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 65px 20px 45px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .section {
+                width: 90%;
+                padding: 25px 0;
+            }
+
+            .intro-card {
+                padding: 23px;
+                gap: 22px;
+            }
+
+            .intro-card h2 {
+                font-size: 25px;
+            }
+
+            .values-grid,
+            .mission-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card,
+            .mission-card {
+                padding: 23px;
+            }
+
+            .team-message {
+                padding: 27px 22px;
+            }
+
+            .cta {
+                padding: 38px 20px;
+            }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         CLICK SOUND
-    ========================= -->
-
+    <!-- CLICK SOUND -->
     <audio id="nikedoSound" preload="auto">
-
-        <source src="Sound Click.mp3"
-                type="audio/mpeg">
-
+        <source src="Sound Click.mp3" type="audio/mpeg">
     </audio>
 
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
-
+    <!-- NAVIGATION -->
     <nav>
-
-
-        <!-- CLICKABLE NIKEDO LOGO -->
-
         <a href="index.html"
            class="logo"
-           onclick="playAndGo(event, 'index.html')">
+           onclick="playAndGo(event, 'index.html')"
+           aria-label="NIKEDO opening page">
 
             <img src="Nikedo.jpg"
                  alt="NIKEDO Logo"
                  class="nav-logo">
 
             <span>NIKEDO</span>
-
         </a>
 
-
-        <!-- NAVIGATION LINKS -->
-
-        <div>
-
+        <div class="nav-links">
             <a href="welcome.html"
                onclick="playAndGo(event, 'welcome.html')">
-
                 Home
-
             </a>
-
 
             <a href="about.html"
+               class="active"
+               aria-current="page"
                onclick="playAndGo(event, 'about.html')">
-
                 About
-
             </a>
-
 
             <a href="members.html"
                onclick="playAndGo(event, 'members.html')">
-
                 Members
-
             </a>
-
 
             <a href="innovation.html"
                onclick="playAndGo(event, 'innovation.html')">
-
                 Innovation
-
             </a>
-
         </div>
-
     </nav>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="hero">
+    <!-- HERO -->
+    <header class="hero">
+        <span class="eyebrow">GET TO KNOW US</span>
 
         <h1>
-            About NIKEDO
+            About <span>NIKEDO</span>
         </h1>
 
         <p>
-            NIKEDO is a student innovation project focused on creating
-            smart, practical, and convenient technology for everyday life.
+            A student innovation project that brings together creativity,
+            technology, and practical thinking to explore a more convenient
+            laptop experience. Discover the idea, purpose, and vision behind
+            our project.
         </p>
 
-    </section>
+        <div class="hero-line"></div>
+    </header>
 
+    <!-- INTRODUCTION -->
+    <main>
+        <section class="section">
+            <div class="intro-card">
+                <div>
+                    <h2>
+                        Turning Creative Ideas Into
+                        <span>Practical Innovation</span>
+                    </h2>
 
-    <!-- =========================
-         ABOUT CONTENT
-    ========================= -->
+                    <p>
+                        NIKEDO is a student-developed DIY laptop innovation
+                        that explores how automation and user awareness
+                        could improve the way people interact with a laptop.
+                    </p>
 
-    <section class="section">
+                    <p>
+                        Our concept focuses on a laptop with an intended
+                        automatic opening and closing mechanism, together
+                        with a pop-up camera concept and an integrated
+                        cooling setup.
+                    </p>
 
+                    <p>
+                        More than building a physical model, NIKEDO gives
+                        us an opportunity to apply our creativity, learn
+                        about technology, and explore how an idea can be
+                        developed into a prototype.
+                    </p>
+                </div>
 
-        <!-- WHAT IS NIKEDO -->
+                <div class="intro-visual">
+                    <div class="visual-icon" aria-hidden="true">💻</div>
+                    <h3>NIKEDO Laptop</h3>
+                    <p>
+                        A DIY prototype exploring automation,
+                        convenience, and creative design.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <div class="box">
+        <!-- CORE VALUES -->
+        <section class="section">
+            <div class="section-heading">
+                <span class="mini-title">OUR FOUNDATION</span>
+                <h2>What NIKEDO Stands For</h2>
+                <p>
+                    Our project is guided by three important ideas
+                    that shape the way we approach innovation.
+                </p>
+            </div>
 
-            <h2>
-                💡 What is NIKEDO?
-            </h2>
+            <div class="values-grid">
+                <article class="value-card">
+                    <div class="value-icon" aria-hidden="true">💡</div>
+                    <h3>Creativity</h3>
+                    <p>
+                        We explore original ideas and use available
+                        materials to create a laptop prototype that
+                        reflects our imagination and problem-solving skills.
+                    </p>
+                </article>
 
-            <p>
-                NIKEDO is an innovative student project that explores
-                how technology can be used to create useful solutions
-                for everyday problems. Our main concept is a laptop
-                that can automatically close when the user is no longer
-                present in front of the device.
-            </p>
+                <article class="value-card">
+                    <div class="value-icon" aria-hidden="true">⚙️</div>
+                    <h3>Practical Technology</h3>
+                    <p>
+                        We explore how automation, user awareness,
+                        and cooling components could be combined
+                        in one concept.
+                    </p>
+                </article>
 
-        </div>
+                <article class="value-card">
+                    <div class="value-icon" aria-hidden="true">🚀</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>
+                        We see every stage of the prototype as an
+                        opportunity to learn, identify challenges,
+                        and improve our design.
+                    </p>
+                </article>
+            </div>
+        </section>
 
+        <!-- MISSION AND VISION -->
+        <section class="section">
+            <div class="section-heading">
+                <span class="mini-title">OUR DIRECTION</span>
+                <h2>Mission and Vision</h2>
+                <p>
+                    These statements describe what we aim to accomplish
+                    through the NIKEDO project.
+                </p>
+            </div>
+
+            <div class="mission-grid">
+                <article class="mission-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>
+                        Our mission is to develop and present a creative
+                        laptop prototype that explores automation,
+                        convenience, and thoughtful design. Through NIKEDO,
+                        we aim to apply our knowledge, work collaboratively,
+                        and learn how technology concepts can be developed
+                        into practical prototypes.
+                    </p>
+                </article>
+
+                <article class="mission-card">
+                    <h3>🌟 Our Vision</h3>
+                    <p>
+                        Our vision is to inspire students to explore
+                        technology with curiosity and creativity. We hope
+                        NIKEDO can serve as a starting point for further
+                        improvements and future ideas that make everyday
+                        technology more convenient and user-aware.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- HOW THE CONCEPT WORKS -->
+        <section class="section">
+            <div class="section-heading">
+                <span class="mini-title">THE IDEA BEHIND THE PROJECT</span>
+                <h2>How the NIKEDO Concept Works</h2>
+                <p>
+                    The project explores a sequence of actions designed
+                    to make laptop use more convenient.
+                </p>
+            </div>
+
+            <div class="steps">
+                <article class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>Side Button</h3>
+                    <p>
+                        A side button is part of the concept for
+                        initiating the laptop's opening mechanism.
+                    </p>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>User Awareness</h3>
+                    <p>
+                        The concept explores detecting whether a user
+                        is present near the laptop.
+                    </p>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Pop-Up Camera</h3>
+                    <p>
+                        A camera designed to rise from the laptop
+                        is part of the proposed mechanism.
+                    </p>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">04</div>
+                    <h3>Automatic Closing</h3>
+                    <p>
+                        The intended design explores closing the laptop
+                        after a period without detected user presence.
+                    </p>
+                </article>
+            </div>
+
+            <div class="prototype-note">
+                <strong>Prototype note:</strong>
+                NIKEDO is a DIY prototype and an innovation concept.
+                The automatic actions described above represent the
+                intended design; only features that have been built
+                and successfully demonstrated should be presented
+                as fully operational.
+            </div>
+        </section>
 
         <!-- PURPOSE -->
+        <section class="section">
+            <div class="section-heading">
+                <span class="mini-title">WHY WE BUILT IT</span>
+                <h2>Our Purpose</h2>
+                <p>
+                    NIKEDO is about learning through building,
+                    testing, and improving an idea.
+                </p>
+            </div>
 
-        <div class="box">
+            <div class="team-message">
+                <h2>Innovation Begins With an Idea</h2>
 
-            <h2>
-                🎯 Our Purpose
-            </h2>
+                <p>
+                    We created NIKEDO to explore how a familiar device
+                    like a laptop could be reimagined through creative
+                    design and automation concepts. By building a DIY
+                    model, we can better understand the planning,
+                    materials, mechanisms, and technical considerations
+                    involved in developing an innovation.
+                </p>
 
-            <p>
-                The purpose of NIKEDO is to develop a creative technology
-                concept that combines convenience, automation, and
-                user awareness. Through this project, we aim to show
-                how simple technology can be developed into a useful
-                and practical innovation.
-            </p>
+                <p>
+                    The project also encourages teamwork, resourcefulness,
+                    critical thinking, and the confidence to turn an idea
+                    into something people can see and understand.
+                </p>
+            </div>
+        </section>
 
-        </div>
-
-
-        <!-- VISION -->
-
-        <div class="box">
-
-            <h2>
-                🚀 Our Vision
-            </h2>
-
-            <p>
-                Our vision is to create innovative ideas that can make
-                technology more convenient and helpful in everyday life.
-                NIKEDO represents our goal of combining creativity,
-                technology, and practical solutions.
-            </p>
-
-        </div>
-
-
-        <!-- WHY NIKEDO -->
-
-        <div class="box">
-
-            <h2>
-                ✨ Why NIKEDO?
-            </h2>
+        <!-- CTA -->
+        <section class="cta">
+            <h2>Curious About Our Innovation?</h2>
 
             <p>
-                NIKEDO was created to demonstrate how students can use
-                technology and creativity to develop new ideas. The
-                project encourages innovation and problem-solving while
-                exploring how automation can improve the way people
-                interact with technology.
+                Explore the NIKEDO laptop concept, learn about its
+                proposed features, and discover the ideas behind
+                our DIY prototype.
             </p>
 
-        </div>
+            <a href="innovation.html"
+               class="cta-button"
+               onclick="playAndGo(event, 'innovation.html')">
+                Explore Our Innovation →
+            </a>
+        </section>
+    </main>
 
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
+    <!-- FOOTER -->
     <footer>
-
-        © 2026 NIKEDO. All Rights Reserved.
-
+        <p>© 2026 <span>NIKEDO</span>. All Rights Reserved.</p>
+        <p>Creativity • Technology • Innovation</p>
     </footer>
 
-
-    <!-- =========================
-         SOUND SCRIPT
-    ========================= -->
-
+    <!-- SOUND SCRIPT -->
     <script>
-
         function playAndGo(event, page) {
-
             event.preventDefault();
 
-            const sound =
-                document.getElementById("nikedoSound");
+            const sound = document.getElementById("nikedoSound");
+
+            if (!sound) {
+                window.location.href = page;
+                return;
+            }
 
             sound.volume = 0.35;
-
             sound.currentTime = 0;
 
             sound.play()
-
                 .then(() => {
-
-                    sound.onended = function() {
-
+                    sound.onended = function () {
                         window.location.href = page;
-
                     };
-
                 })
-
                 .catch(error => {
-
                     console.log("Sound error:", error);
-
                     window.location.href = page;
-
                 });
-
         }
-
     </script>
 
-
 </body>
-
 </html>
