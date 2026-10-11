@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the NIKEDO DIY laptop prototype, its design features, materials, construction, and future improvements.">
+    <meta name="description" content="Discover the NIKEDO DIY laptop prototype, its design, materials, features, and future improvements.">
     <title>NIKEDO | Innovation</title>
 
     <style>
@@ -18,26 +16,33 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
         }
 
         body {
             background: #0f0f14;
-            color: white;
+            color: #fff;
             line-height: 1.7;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* NAVIGATION */
 
         nav {
-            background: #15151d;
+            background: rgba(21, 21, 29, 0.97);
             border-bottom: 1px solid #292936;
-            padding: 18px 8%;
+            padding: 15px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
+            backdrop-filter: blur(12px);
         }
 
         .logo {
@@ -49,14 +54,11 @@
             font-weight: bold;
             text-decoration: none;
             transition: 0.3s;
+            flex-shrink: 0;
         }
 
         .logo:hover {
             transform: translateY(-2px);
-        }
-
-        .logo:hover span {
-            color: #ff82b6;
         }
 
         .nav-logo {
@@ -66,35 +68,54 @@
             border-radius: 8px;
         }
 
-        nav > div {
+        nav .nav-links {
             display: flex;
             align-items: center;
             gap: 25px;
         }
 
-        nav > div a {
-            color: white;
+        nav .nav-links a {
+            color: #eee;
             text-decoration: none;
-            transition: 0.3s;
+            transition: color 0.25s;
+            font-size: 15px;
         }
 
-        nav > div a:hover,
-        nav > div a.active {
+        nav .nav-links a:hover,
+        nav .nav-links a.active {
             color: #ff5fa2;
         }
 
         /* HERO */
 
         .hero {
+            position: relative;
+            overflow: hidden;
             text-align: center;
-            padding: 85px 20px 65px;
+            padding: 95px 20px 85px;
             background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    #32182f 0%,
-                    #1b1420 35%,
-                    #0f0f14 75%
-                );
+                radial-gradient(ellipse at 50% 0%, rgba(255, 95, 162, 0.19), transparent 58%),
+                radial-gradient(ellipse at 10% 100%, rgba(103, 48, 115, 0.15), transparent 45%),
+                linear-gradient(135deg, #19131f, #0f0f14 70%);
+            border-bottom: 1px solid #28212e;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(255, 95, 162, 0.12);
+            border-radius: 50%;
+            top: -170px;
+            right: 8%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 850px;
+            margin: auto;
         }
 
         .eyebrow {
@@ -103,54 +124,57 @@
             letter-spacing: 3px;
             font-size: 12px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .hero h1 {
             color: #ff5fa2;
-            font-size: clamp(34px, 5vw, 48px);
+            font-size: clamp(34px, 5vw, 52px);
             line-height: 1.2;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
-        .hero p {
-            color: #ccc;
+        .hero-description {
+            color: #d0cbd4;
             max-width: 760px;
             margin: auto;
-            font-size: 17px;
+            font-size: 16px;
             line-height: 1.9;
         }
 
         .hero-link {
             display: inline-block;
-            margin-top: 25px;
-            padding: 11px 20px;
+            margin-top: 28px;
+            padding: 12px 22px;
             border: 1px solid #ff5fa2;
             border-radius: 8px;
             color: #ff82b6;
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: bold;
+            transition: 0.25s;
         }
 
         .hero-link:hover {
             background: #ff5fa2;
-            color: white;
+            color: #fff;
+            transform: translateY(-2px);
         }
 
-        /* MAIN CONTENT */
+        /* MAIN LAYOUT */
 
         .section {
-            max-width: 1100px;
-            margin: 35px auto;
+            width: min(1100px, 100%);
+            margin: 38px auto;
             padding: 0 20px;
         }
 
         .box {
-            background: #15151d;
+            background: linear-gradient(145deg, #17171f, #14141b);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 16px;
             margin-bottom: 25px;
-            border: 1px solid #252530;
+            border: 1px solid #292936;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
         .section-heading {
@@ -158,6 +182,7 @@
         }
 
         .section-heading span {
+            display: block;
             color: #ff82b6;
             text-transform: uppercase;
             font-size: 12px;
@@ -167,17 +192,18 @@
 
         .section-heading h2 {
             color: #ff5fa2;
-            font-size: 26px;
+            font-size: clamp(23px, 3vw, 28px);
             margin-top: 5px;
             line-height: 1.4;
         }
 
-        .box > p {
+        .box > p,
+        .overview-grid > p {
             color: #d0d0d8;
             line-height: 1.9;
         }
 
-        /* PROJECT OVERVIEW */
+        /* OVERVIEW */
 
         .overview-grid {
             display: grid;
@@ -186,27 +212,27 @@
             align-items: start;
         }
 
-        .overview-grid > p {
-            color: #d0d0d8;
-            line-height: 1.9;
-        }
-
         .overview-details {
             display: grid;
-            gap: 14px;
+            gap: 13px;
         }
 
         .detail {
-            background: #1b1b24;
-            border: 1px solid #292936;
-            border-radius: 10px;
-            padding: 18px;
+            background: #1d1d27;
+            border: 1px solid #30303d;
+            border-radius: 11px;
+            padding: 17px 19px;
+            transition: border-color 0.25s;
+        }
+
+        .detail:hover {
+            border-color: #a94876;
         }
 
         .detail h3 {
             color: #ff82b6;
             font-size: 16px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .detail p {
@@ -220,20 +246,20 @@
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
+            gap: 17px;
             margin-top: 22px;
         }
 
         .feature {
-            background: #1b1b24;
-            border: 1px solid #292936;
+            background: #1c1c25;
+            border: 1px solid #2d2d39;
             border-radius: 12px;
             padding: 22px;
-            transition: 0.3s;
+            transition: transform 0.25s, border-color 0.25s;
         }
 
         .feature:hover {
-            border-color: #ff5fa2;
+            border-color: #c64c88;
             transform: translateY(-4px);
         }
 
@@ -241,20 +267,21 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 34px;
-            height: 34px;
+            width: 35px;
+            height: 35px;
             border-radius: 9px;
-            background: rgba(255, 95, 162, 0.12);
+            background: rgba(255, 95, 162, 0.13);
+            border: 1px solid rgba(255, 95, 162, 0.18);
             color: #ff82b6;
             font-size: 14px;
             font-weight: bold;
-            margin-bottom: 14px;
+            margin-bottom: 13px;
         }
 
         .feature h3 {
-            color: #ff5fa2;
+            color: #ff82b6;
             font-size: 17px;
-            margin-bottom: 9px;
+            margin-bottom: 8px;
         }
 
         .feature p {
@@ -263,33 +290,35 @@
             line-height: 1.8;
         }
 
+        /* NOTES */
+
         .note {
             margin-top: 22px;
             padding: 16px 18px;
             border-left: 3px solid #ff5fa2;
-            background: rgba(255, 95, 162, 0.06);
+            background: rgba(255, 95, 162, 0.07);
             color: #d0d0d8;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 9px 9px 0;
             font-size: 14px;
             line-height: 1.8;
         }
 
-        /* DESIGN PROCESS */
+        /* PROCESS */
 
         .process-list {
             display: grid;
-            gap: 15px;
+            gap: 14px;
             margin-top: 20px;
         }
 
         .process-item {
             display: grid;
-            grid-template-columns: 48px 1fr;
+            grid-template-columns: 45px minmax(0, 1fr);
             gap: 16px;
             align-items: start;
             padding: 18px;
-            background: #1b1b24;
-            border: 1px solid #292936;
+            background: #1c1c25;
+            border: 1px solid #2d2d39;
             border-radius: 12px;
         }
 
@@ -299,9 +328,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: #ff5fa2;
-            color: white;
+            border-radius: 12px;
+            background: rgba(255, 95, 162, 0.15);
+            border: 1px solid rgba(255, 95, 162, 0.25);
+            color: #ff82b6;
             font-weight: bold;
         }
 
@@ -327,14 +357,14 @@
         }
 
         .materials-list {
-            background: #1b1b24;
+            background: #1c1c25;
             padding: 23px;
             border-radius: 12px;
-            border: 1px solid #292936;
+            border: 1px solid #2d2d39;
         }
 
         .materials-list h3 {
-            color: #ff5fa2;
+            color: #ff82b6;
             margin-bottom: 12px;
         }
 
@@ -350,6 +380,10 @@
 
         /* PROTOTYPE GALLERY */
 
+        .gallery-intro {
+            margin-bottom: 3px;
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -358,16 +392,18 @@
         }
 
         .gallery figure {
+            min-width: 0;
             background: #1b1b24;
-            border: 1px solid #292936;
-            border-radius: 12px;
+            border: 1px solid #30303c;
+            border-radius: 13px;
             overflow: hidden;
-            transition: 0.3s;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
         }
 
         .gallery figure:hover {
             transform: translateY(-4px);
             border-color: #ff5fa2;
+            box-shadow: 0 10px 28px rgba(255, 95, 162, 0.09);
         }
 
         .gallery img {
@@ -375,23 +411,25 @@
             width: 100%;
             aspect-ratio: 4 / 3;
             object-fit: cover;
+            object-position: center;
             background: #101017;
         }
 
         .gallery figcaption {
             padding: 16px;
-            color: #ccc;
+            color: #d0d0d8;
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         .gallery figcaption strong {
             display: block;
             color: #ff82b6;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-size: 14px;
         }
 
-        /* BENEFITS AND FUTURE */
+        /* BENEFITS */
 
         .two-column {
             display: grid;
@@ -400,14 +438,14 @@
         }
 
         .info-panel {
-            background: #1b1b24;
-            border: 1px solid #292936;
+            background: #1c1c25;
+            border: 1px solid #2d2d39;
             border-radius: 12px;
             padding: 23px;
         }
 
         .info-panel h3 {
-            color: #ff5fa2;
+            color: #ff82b6;
             margin-bottom: 10px;
         }
 
@@ -424,15 +462,15 @@
             margin: 5px 0 55px;
             padding: 12px 22px;
             background: #ff5fa2;
-            color: white;
+            color: #fff;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 9px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: 0.25s;
         }
 
         .back:hover {
-            background: #ff3f91;
+            background: #e9478c;
             transform: translateY(-2px);
         }
 
@@ -441,13 +479,13 @@
         footer {
             text-align: center;
             padding: 28px 20px;
-            color: #888;
+            color: #92929f;
             background: #15151d;
             border-top: 1px solid #292936;
             font-size: 14px;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE */
 
         @media (max-width: 850px) {
             .features-grid,
@@ -463,39 +501,36 @@
         @media (max-width: 700px) {
             nav {
                 flex-direction: column;
-                gap: 15px;
-                padding: 16px 15px;
+                gap: 13px;
+                padding: 14px 15px;
             }
 
-            nav > div {
+            nav .nav-links {
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 12px 18px;
+                gap: 10px 18px;
             }
 
-            nav > div a {
+            nav .nav-links a {
                 font-size: 14px;
             }
 
             .hero {
-                padding: 60px 20px 45px;
+                padding: 65px 18px 55px;
             }
 
-            .hero p {
+            .hero-description {
                 font-size: 15px;
             }
 
             .section {
-                padding: 0 15px;
+                padding: 0 14px;
                 margin: 25px auto;
             }
 
             .box {
-                padding: 22px;
-            }
-
-            .section-heading h2 {
-                font-size: 23px;
+                padding: 21px 18px;
+                border-radius: 13px;
             }
 
             .features-grid,
@@ -505,15 +540,32 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery img {
+                aspect-ratio: 4 / 3;
+            }
+
             .process-item {
-                grid-template-columns: 40px 1fr;
+                grid-template-columns: 38px minmax(0, 1fr);
                 gap: 12px;
-                padding: 15px;
+                padding: 14px;
             }
 
             .process-number {
                 width: 36px;
                 height: 36px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -522,70 +574,57 @@
 <body>
 
     <!-- CLICK SOUND -->
-
     <audio id="nikedoSound" preload="auto">
         <source src="Sound Click.mp3" type="audio/mpeg">
     </audio>
 
     <!-- NAVIGATION -->
-
     <nav>
-        <a href="index.html"
-           class="logo"
+        <a href="index.html" class="logo"
            onclick="playAndGo(event, 'index.html')">
-
             <img src="Nikedo.jpg" alt="NIKEDO Logo" class="nav-logo">
             <span>NIKEDO</span>
         </a>
 
-        <div>
+        <div class="nav-links">
             <a href="welcome.html"
-               onclick="playAndGo(event, 'welcome.html')">
-                Home
-            </a>
+               onclick="playAndGo(event, 'welcome.html')">Home</a>
 
             <a href="about.html"
-               onclick="playAndGo(event, 'about.html')">
-                About
-            </a>
+               onclick="playAndGo(event, 'about.html')">About</a>
 
             <a href="members.html"
-               onclick="playAndGo(event, 'members.html')">
-                Members
-            </a>
+               onclick="playAndGo(event, 'members.html')">Members</a>
 
-            <a href="innovation.html"
-               class="active"
+            <a href="innovation.html" class="active"
                aria-current="page"
-               onclick="playAndGo(event, 'innovation.html')">
-                Innovation
-            </a>
+               onclick="playAndGo(event, 'innovation.html')">Innovation</a>
         </div>
     </nav>
 
     <!-- HERO -->
-
     <header class="hero">
-        <p class="eyebrow">Design • Creativity • Technology</p>
+        <div class="hero-content">
+            <p class="eyebrow">Design • Creativity • Technology</p>
 
-        <h1>Inside the NIKEDO Innovation</h1>
+            <h1>Inside the NIKEDO Innovation</h1>
 
-        <p>
-            NIKEDO is our DIY laptop concept developed for our Media
-            Technology project. It explores how a laptop could combine
-            convenient opening and closing, a pop-up camera, user
-            detection, and cooling in one design.
-        </p>
+            <p class="hero-description">
+                NIKEDO is our DIY laptop concept developed for our Media
+                Technology project. It explores how convenient opening
+                and closing, a pop-up camera, user detection, and cooling
+                could be brought together in one laptop design.
+            </p>
 
-        <a href="#prototype" class="hero-link">
-            Explore Our Prototype ↓
-        </a>
+            <a href="#prototype" class="hero-link">
+                Explore Our Prototype ↓
+            </a>
+        </div>
     </header>
 
     <main class="section">
 
         <!-- 01. PROJECT OVERVIEW -->
-
         <section class="box">
             <div class="section-heading">
                 <span>01 / Project Overview</span>
@@ -599,12 +638,10 @@
                     personal computing. We used simple materials to
                     represent the laptop's body and arranged its visible
                     details to show how a more convenient design might
-                    look. The concept also includes ideas for an
-                    opening mechanism, a pop-up camera, user detection,
-                    and an internal cooling setup.
-
+                    look. The concept also includes ideas for an opening
+                    mechanism, a pop-up camera, user detection, and an
+                    internal cooling setup.
                     <br><br>
-
                     Through this project, we learned how planning,
                     creativity, teamwork, and practical construction
                     can turn an idea into a physical model.
@@ -630,7 +667,6 @@
         </section>
 
         <!-- 02. DESIGN FEATURES -->
-
         <section class="box">
             <div class="section-heading">
                 <span>02 / Design Features</span>
@@ -645,61 +681,47 @@
             </p>
 
             <div class="features-grid">
-
                 <article class="feature">
                     <span class="feature-number">01</span>
                     <h3>Side Button</h3>
-                    <p>
-                        A button positioned on the side is intended
-                        to start the laptop's proposed opening process.
-                    </p>
+                    <p>A button positioned on the side is intended to
+                       start the laptop's proposed opening process.</p>
                 </article>
 
                 <article class="feature">
                     <span class="feature-number">02</span>
                     <h3>Automatic Opening</h3>
-                    <p>
-                        The design explores a mechanism that could
-                        open the laptop with less manual effort.
-                    </p>
+                    <p>The design explores a mechanism that could open
+                       the laptop with less manual effort.</p>
                 </article>
 
                 <article class="feature">
                     <span class="feature-number">03</span>
                     <h3>Pop-Up Camera</h3>
-                    <p>
-                        A camera mechanism is planned to rise from
-                        the laptop body as part of the proposed design.
-                    </p>
+                    <p>A camera mechanism is planned to rise from the
+                       laptop body as part of the proposed design.</p>
                 </article>
 
                 <article class="feature">
                     <span class="feature-number">04</span>
                     <h3>User Detection</h3>
-                    <p>
-                        A detection system is intended to check
-                        whether the user is still in front of the laptop.
-                    </p>
+                    <p>A detection system is intended to check whether
+                       the user is still in front of the laptop.</p>
                 </article>
 
                 <article class="feature">
                     <span class="feature-number">05</span>
                     <h3>Automatic Closing</h3>
-                    <p>
-                        The concept proposes closing the laptop after
-                        a set waiting period if no user is detected.
-                    </p>
+                    <p>The concept proposes closing the laptop after a
+                       set waiting period if no user is detected.</p>
                 </article>
 
                 <article class="feature">
                     <span class="feature-number">06</span>
                     <h3>Cooling Fan</h3>
-                    <p>
-                        A cooling fan is included in the internal
-                        setup to represent heat management in a laptop.
-                    </p>
+                    <p>A cooling fan represents the proposed approach
+                       to heat management inside a laptop.</p>
                 </article>
-
             </div>
 
             <p class="note">
@@ -711,7 +733,6 @@
         </section>
 
         <!-- 03. PROPOSED PROCESS -->
-
         <section class="box">
             <div class="section-heading">
                 <span>03 / Proposed Process</span>
@@ -726,15 +747,12 @@
             </p>
 
             <div class="process-list">
-
                 <div class="process-item">
                     <span class="process-number">1</span>
                     <div>
                         <h3>Start with the Side Button</h3>
-                        <p>
-                            The user presses the side button to initiate
-                            the proposed opening mechanism.
-                        </p>
+                        <p>The user presses the side button to initiate
+                           the proposed opening mechanism.</p>
                     </div>
                 </div>
 
@@ -742,10 +760,8 @@
                     <span class="process-number">2</span>
                     <div>
                         <h3>Monitor User Presence</h3>
-                        <p>
-                            The planned detection system checks whether
-                            someone remains in front of the laptop.
-                        </p>
+                        <p>The planned detection system checks whether
+                           someone remains in front of the laptop.</p>
                     </div>
                 </div>
 
@@ -753,13 +769,10 @@
                     <span class="process-number">3</span>
                     <div>
                         <h3>Begin the Closing Sequence</h3>
-                        <p>
-                            If the user is no longer detected after
-                            the intended waiting period, the system
-                            would begin the proposed closing sequence.
-                            The pop-up camera is another design feature
-                            intended to work with the mechanism.
-                        </p>
+                        <p>If the user is no longer detected after the
+                           intended waiting period, the system would
+                           begin the proposed closing sequence. The
+                           pop-up camera is another planned feature.</p>
                     </div>
                 </div>
 
@@ -767,20 +780,16 @@
                     <span class="process-number">4</span>
                     <div>
                         <h3>Close the Laptop</h3>
-                        <p>
-                            The intended final step is to close the
-                            laptop when the user has not returned.
-                            The timing and moving parts would need
-                            to be tested for safe and reliable operation.
-                        </p>
+                        <p>The intended final step is to close the
+                           laptop when the user has not returned.
+                           The timing and moving parts would need
+                           testing for safe and reliable operation.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- 04. MATERIALS AND TOOLS -->
-
         <section class="box">
             <div class="section-heading">
                 <span>04 / Construction</span>
@@ -789,15 +798,13 @@
 
             <p>
                 The prototype uses simple materials to represent the
-                laptop body and its details. Review this list and keep
-                only the items that your group actually used.
+                laptop body and its details. Keep only the items that
+                your group actually used.
             </p>
 
             <div class="materials-grid">
-
                 <div class="materials-list">
                     <h3>Materials</h3>
-
                     <ul>
                         <li>Cardboard for the laptop structure</li>
                         <li>Colored paper for the outer covering</li>
@@ -812,7 +819,6 @@
 
                 <div class="materials-list">
                     <h3>Tools</h3>
-
                     <ul>
                         <li>Ruler for measuring</li>
                         <li>Scissors for cutting paper</li>
@@ -825,26 +831,23 @@
                         Ask a teacher or adult for supervision when needed.
                     </p>
                 </div>
-
             </div>
         </section>
 
         <!-- 05. PROTOTYPE GALLERY -->
-
         <section class="box" id="prototype">
             <div class="section-heading">
                 <span>05 / Our Actual Model</span>
                 <h2>NIKEDO Prototype Gallery</h2>
             </div>
 
-            <p>
+            <p class="gallery-intro">
                 These photographs show our actual handmade laptop,
                 highlighting its front design, side structure,
                 and lower construction.
             </p>
 
             <div class="gallery">
-
                 <figure>
                     <img
                         src="prototype1.png"
@@ -883,20 +886,20 @@
                         of the handmade model.
                     </figcaption>
                 </figure>
-
             </div>
 
             <p class="note">
                 <strong>Image reminder:</strong>
-                Upload prototype1.png, prototype2.png, and
-                prototype3.png to the same GitHub repository
-                location as this HTML file. The filenames must
-                match exactly, including uppercase and lowercase letters.
+                Upload <strong>prototype1.png</strong>,
+                <strong>prototype2.png</strong>, and
+                <strong>prototype3.png</strong> to the same GitHub
+                repository folder as this HTML file. The filenames
+                must match exactly, including uppercase and lowercase
+                letters.
             </p>
         </section>
 
         <!-- 06. BENEFITS AND FUTURE IMPROVEMENTS -->
-
         <section class="box">
             <div class="section-heading">
                 <span>06 / Evaluation</span>
@@ -904,7 +907,6 @@
             </div>
 
             <div class="two-column">
-
                 <article class="info-panel">
                     <h3>Potential Benefits</h3>
                     <p>
@@ -923,18 +925,16 @@
                     <p>
                         Future development could focus on testing
                         the opening and closing mechanism, improving
-                        user detection, checking the camera movement,
+                        user detection, checking camera movement,
                         and evaluating the cooling setup. We could
                         also improve the laptop's outer finish and
                         test the moving parts for safety and reliability.
                     </p>
                 </article>
-
             </div>
         </section>
 
         <!-- 07. PROJECT REFLECTION -->
-
         <section class="box">
             <div class="section-heading">
                 <span>07 / Project Reflection</span>
@@ -954,23 +954,19 @@
         </section>
 
         <!-- BACK TO HOME -->
-
         <a href="welcome.html"
            class="back"
            onclick="playAndGo(event, 'welcome.html')">
             ← Back to Home
         </a>
-
     </main>
 
     <!-- FOOTER -->
-
     <footer>
         © 2026 NIKEDO | Media Technology Project
     </footer>
 
     <!-- CLICK SOUND SCRIPT -->
-
     <script>
         function playAndGo(event, page) {
             event.preventDefault();
@@ -999,4 +995,3 @@
 
 </body>
 </html>
-```
