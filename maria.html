@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,14 +55,12 @@
         }
 
         .picture {
-            width: 180px;
-            height: 220px;
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
             border: 2px solid #ff5fa2;
             margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
+            display: block;
             border-radius: 10px;
         }
 
@@ -113,6 +112,37 @@
             padding: 30px;
             color: #888;
         }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 18px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 6px;
+                font-size: 14px;
+            }
+
+            .profile {
+                margin: 35px auto;
+            }
+
+            .picture {
+                width: 250px;
+                height: 333px;
+                max-width: 100%;
+            }
+
+            .about {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 
@@ -123,12 +153,11 @@
         <source src="Sound Click.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- NAVIGATION -->
     <nav>
-
         <div class="logo">NIKEDO</div>
 
         <div>
-
             <a href="index.html#home"
                onclick="playAndGo(event, 'index.html#home')">
                 Home
@@ -148,15 +177,15 @@
                onclick="playAndGo(event, 'innovation.html')">
                 Innovation
             </a>
-
         </div>
-
     </nav>
 
-
+    <!-- MARIA'S PROFILE -->
     <section class="profile">
 
-       <img src="maria.png"
+        <img src="maria.png"
+             alt="Maria Suzaine P. Catingcoy"
+             class="picture">
 
         <h1>Maria Suzaine P. Catingcoy</h1>
 
@@ -185,37 +214,31 @@
 
     </section>
 
-
+    <!-- FOOTER -->
     <footer>
         © 2026 NIKEDO. All Rights Reserved.
     </footer>
 
-
     <!-- SOUND SCRIPT -->
-
     <script>
-
         function playAndGo(event, page) {
-
             event.preventDefault();
 
-            const sound =
-                document.getElementById("nikedoSound");
+            const sound = document.getElementById("nikedoSound");
 
             sound.volume = 0.35;
             sound.currentTime = 0;
 
-            sound.play();
-
-            sound.onended = function() {
-
+            sound.play().then(function() {
+                sound.onended = function() {
+                    window.location.href = page;
+                };
+            }).catch(function() {
                 window.location.href = page;
-
-            };
-
+            });
         }
-
     </script>
 
 </body>
 </html>
+```
