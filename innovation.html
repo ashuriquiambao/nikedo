@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -186,6 +186,11 @@
             align-items: start;
         }
 
+        .overview-grid > p {
+            color: #d0d0d8;
+            line-height: 1.9;
+        }
+
         .overview-details {
             display: grid;
             gap: 14px;
@@ -343,7 +348,7 @@
             padding-left: 3px;
         }
 
-        /* GALLERY */
+        /* PROTOTYPE GALLERY */
 
         .gallery {
             display: grid;
@@ -442,13 +447,10 @@
             font-size: 14px;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE DESIGN */
 
         @media (max-width: 850px) {
-            .features-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
+            .features-grid,
             .gallery {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -575,12 +577,14 @@
             detection, and cooling in one design.
         </p>
 
-        <a href="#prototype" class="hero-link">Explore Our Prototype ↓</a>
+        <a href="#prototype" class="hero-link">
+            Explore Our Prototype ↓
+        </a>
     </header>
 
     <main class="section">
 
-        <!-- PROJECT OVERVIEW -->
+        <!-- 01. PROJECT OVERVIEW -->
 
         <section class="box">
             <div class="section-heading">
@@ -625,7 +629,7 @@
             </div>
         </section>
 
-        <!-- KEY FEATURES -->
+        <!-- 02. DESIGN FEATURES -->
 
         <section class="box">
             <div class="section-heading">
@@ -706,7 +710,7 @@
             </p>
         </section>
 
-        <!-- PROPOSED OPERATING SEQUENCE -->
+        <!-- 03. PROPOSED PROCESS -->
 
         <section class="box">
             <div class="section-heading">
@@ -775,7 +779,7 @@
             </div>
         </section>
 
-        <!-- MATERIALS AND TOOLS -->
+        <!-- 04. MATERIALS AND TOOLS -->
 
         <section class="box">
             <div class="section-heading">
@@ -793,6 +797,7 @@
 
                 <div class="materials-list">
                     <h3>Materials</h3>
+
                     <ul>
                         <li>Cardboard for the laptop structure</li>
                         <li>Colored paper for the outer covering</li>
@@ -807,6 +812,7 @@
 
                 <div class="materials-list">
                     <h3>Tools</h3>
+
                     <ul>
                         <li>Ruler for measuring</li>
                         <li>Scissors for cutting paper</li>
@@ -823,7 +829,7 @@
             </div>
         </section>
 
-        <!-- PROTOTYPE GALLERY -->
+        <!-- 05. PROTOTYPE GALLERY -->
 
         <section class="box" id="prototype">
             <div class="section-heading">
@@ -832,62 +838,64 @@
             </div>
 
             <p>
-                These gallery spaces are for photographs of our actual
-                handmade laptop. Each view highlights a different part
-                of the model and how we presented our design.
+                These photographs show our actual handmade laptop,
+                highlighting its front design, side structure,
+                and lower construction.
             </p>
 
             <div class="gallery">
 
                 <figure>
                     <img
-                        src="nikedo-prototype-1.png"
-                        alt="Outer body of the NIKEDO DIY laptop prototype"
+                        src="prototype1.png"
+                        alt="Front view of the NIKEDO DIY laptop prototype with keyboard, touchpad, and QR code"
                         loading="lazy">
 
                     <figcaption>
-                        <strong>01. Outer Design</strong>
-                        Shows the handmade laptop body and its overall
-                        appearance.
+                        <strong>01. Front View</strong>
+                        Shows the screen with the NIKEDO QR code,
+                        keyboard, and touchpad.
                     </figcaption>
                 </figure>
 
                 <figure>
                     <img
-                        src="nikedo-prototype-2.png"
-                        alt="Side view of the NIKEDO laptop prototype"
+                        src="prototype2.png"
+                        alt="Side view showing the thickness and cardboard structure of the NIKEDO laptop"
                         loading="lazy">
 
                     <figcaption>
                         <strong>02. Side View</strong>
-                        Shows the thickness and structure of the
-                        handmade model.
+                        Highlights the thickness, hinge, and handmade
+                        cardboard structure of the prototype.
                     </figcaption>
                 </figure>
 
                 <figure>
                     <img
-                        src="nikedo-prototype-3.png"
-                        alt="Front view of the NIKEDO laptop with screen and keyboard"
+                        src="prototype3.png"
+                        alt="NIKEDO laptop prototype showing its lower cardboard structure"
                         loading="lazy">
 
                     <figcaption>
-                        <strong>03. Front View</strong>
-                        Shows the screen, keyboard, and touchpad details.
+                        <strong>03. Prototype Structure</strong>
+                        Shows the lower part and inner structure
+                        of the handmade model.
                     </figcaption>
                 </figure>
 
             </div>
 
             <p class="note">
-                Make sure the three image files are uploaded to the
-                same GitHub repository location as this HTML file.
-                If your actual filenames are different, update the
-                corresponding image paths above.
+                <strong>Image reminder:</strong>
+                Upload prototype1.png, prototype2.png, and
+                prototype3.png to the same GitHub repository
+                location as this HTML file. The filenames must
+                match exactly, including uppercase and lowercase letters.
             </p>
         </section>
 
-        <!-- BENEFITS AND FUTURE IMPROVEMENTS -->
+        <!-- 06. BENEFITS AND FUTURE IMPROVEMENTS -->
 
         <section class="box">
             <div class="section-heading">
@@ -925,7 +933,7 @@
             </div>
         </section>
 
-        <!-- CONCLUSION -->
+        <!-- 07. PROJECT REFLECTION -->
 
         <section class="box">
             <div class="section-heading">
@@ -991,3 +999,4 @@
 
 </body>
 </html>
+```
