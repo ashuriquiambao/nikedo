@@ -1,17 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIKEDO Innovation</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -24,50 +20,29 @@
             color: white;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* NAVIGATION */
 
         nav {
             background: #15151d;
-
             border-bottom: 1px solid #292936;
-
             padding: 18px 8%;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             position: sticky;
-
             top: 0;
-
             z-index: 10;
         }
 
-
-        /* CLICKABLE LOGO */
-
         .logo {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
             color: #ff5fa2;
-
             font-size: 24px;
-
             font-weight: bold;
-
             text-decoration: none;
-
             cursor: pointer;
-
             transition: 0.3s;
         }
 
@@ -79,27 +54,17 @@
             color: #ff82b6;
         }
 
-
         .nav-logo {
             width: 42px;
-
             height: 42px;
-
             object-fit: contain;
-
             border-radius: 8px;
         }
 
-
-        /* NAVIGATION LINKS */
-
         nav a {
             color: white;
-
             text-decoration: none;
-
             margin-left: 25px;
-
             transition: 0.3s;
         }
 
@@ -107,215 +72,262 @@
             color: #ff5fa2;
         }
 
-
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
 
         .hero {
             text-align: center;
-
             padding: 80px 20px 50px;
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #32182f 0%,
+                    #1b1420 35%,
+                    #0f0f14 75%
+                );
         }
 
         .hero h1 {
             color: #ff5fa2;
-
             font-size: 45px;
-
             margin-bottom: 15px;
         }
 
         .hero p {
             color: #ccc;
-
-            max-width: 700px;
-
+            max-width: 750px;
             margin: auto;
-
-            line-height: 1.7;
-
+            line-height: 1.8;
             font-size: 18px;
         }
 
-
-        /* =========================
-           SECTION
-        ========================= */
+        /* MAIN SECTIONS */
 
         .section {
-            max-width: 1000px;
-
+            max-width: 1100px;
             margin: 30px auto;
-
             padding: 20px;
         }
 
-
-        /* =========================
-           BOX
-        ========================= */
-
         .box {
             background: #15151d;
-
             padding: 30px;
-
             border-radius: 15px;
-
             margin-bottom: 25px;
-
             border: 1px solid #252530;
         }
 
         .box h2 {
             color: #ff5fa2;
-
             margin-bottom: 15px;
+            font-size: 25px;
         }
 
-        .box p {
+        .box > p {
             color: #ddd;
-
             line-height: 1.8;
         }
 
-
-        /* =========================
-           STEPS
-        ========================= */
+        /* FEATURE AND STEP CARDS */
 
         .steps {
             display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
-
             margin-top: 20px;
         }
 
         .step {
             background: #1b1b24;
-
             padding: 25px;
-
             border-radius: 12px;
+            border: 1px solid #292936;
         }
 
         .step h3 {
             color: #ff5fa2;
-
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .step p {
             color: #ccc;
+            line-height: 1.7;
+        }
 
+        .note {
+            margin-top: 20px;
+            padding: 15px 18px;
+            border-left: 3px solid #ff5fa2;
+            background: rgba(255, 95, 162, 0.06);
+            color: #ccc;
+            line-height: 1.7;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* MATERIALS */
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .materials-list {
+            background: #1b1b24;
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid #292936;
+        }
+
+        .materials-list h3 {
+            color: #ff5fa2;
+            margin-bottom: 12px;
+        }
+
+        .materials-list ul {
+            padding-left: 20px;
+            color: #ccc;
+            line-height: 1.9;
+        }
+
+        /* PROTOTYPE GALLERY */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .gallery figure {
+            margin: 0;
+            background: #1b1b24;
+            border: 1px solid #292936;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .gallery figure:hover {
+            transform: translateY(-5px);
+            border-color: #ff5fa2;
+            box-shadow: 0 8px 25px rgba(255, 95, 162, 0.12);
+        }
+
+        .gallery img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background: #101017;
+        }
+
+        .gallery figcaption {
+            padding: 14px;
+            color: #ccc;
+            font-size: 14px;
             line-height: 1.6;
         }
 
-
-        /* =========================
-           BACK BUTTON
-        ========================= */
+        /* BACK BUTTON */
 
         .back {
             display: inline-block;
-
             margin: 20px 0 50px;
-
             padding: 12px 22px;
-
             background: #ff5fa2;
-
             color: white;
-
             text-decoration: none;
-
             border-radius: 8px;
-
             font-weight: bold;
-
             transition: 0.3s;
         }
 
         .back:hover {
             background: #ff3f91;
+            transform: translateY(-2px);
         }
 
-
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             text-align: center;
-
             padding: 30px;
-
             color: #888;
-
             background: #15151d;
+            border-top: 1px solid #292936;
         }
 
-
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE RESPONSIVE */
 
         @media (max-width: 700px) {
-
             nav {
                 flex-direction: column;
+                gap: 15px;
+                padding: 18px 15px;
+            }
 
+            nav > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 15px;
             }
 
-            nav a {
-                margin-left: 8px;
+            nav > div a {
+                margin: 0;
+                font-size: 14px;
+            }
 
-                margin-right: 8px;
+            .hero {
+                padding: 55px 20px 40px;
             }
 
             .hero h1 {
                 font-size: 35px;
             }
 
-            .steps {
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .box {
+                padding: 22px;
+            }
+
+            .box h2 {
+                font-size: 22px;
+            }
+
+            .steps,
+            .materials-grid,
+            .gallery {
                 grid-template-columns: 1fr;
             }
 
+            .gallery img {
+                aspect-ratio: 4 / 3;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         CLICK SOUND
-    ========================= -->
+    <!-- CLICK SOUND -->
 
     <audio id="nikedoSound" preload="auto">
-
-        <source src="Sound Click.mp3"
-                type="audio/mpeg">
-
+        <source src="Sound Click.mp3" type="audio/mpeg">
     </audio>
 
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+    <!-- NAVIGATION -->
 
     <nav>
-
-
-        <!-- CLICKABLE NIKEDO LOGO -->
 
         <a href="index.html"
            class="logo"
@@ -326,322 +338,349 @@
                  class="nav-logo">
 
             <span>NIKEDO</span>
-
         </a>
 
-
-        <!-- NAVIGATION LINKS -->
-
         <div>
-
             <a href="welcome.html"
                onclick="playAndGo(event, 'welcome.html')">
-
                 Home
-
             </a>
-
 
             <a href="about.html"
                onclick="playAndGo(event, 'about.html')">
-
                 About
-
             </a>
-
 
             <a href="members.html"
                onclick="playAndGo(event, 'members.html')">
-
                 Members
-
             </a>
-
 
             <a href="innovation.html"
                onclick="playAndGo(event, 'innovation.html')">
-
                 Innovation
-
             </a>
-
         </div>
 
     </nav>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
+    <!-- HERO -->
 
     <section class="hero">
-
-        <h1>
-            Our Innovation
-        </h1>
+        <h1>Our Innovation</h1>
 
         <p>
-            NIKEDO presents a future laptop designed to automatically
-            close itself when the user is no longer present.
+            Meet the NIKEDO DIY laptop concept: a design that explores
+            automatic opening and closing, a pop-up camera, and a cooling
+            fan in one project.
         </p>
-
     </section>
 
-
-    <!-- =========================
-         INNOVATION CONTENT
-    ========================= -->
+    <!-- INNOVATION CONTENT -->
 
     <section class="section">
 
-
-        <!-- NIKEDO LAPTOP -->
+        <!-- ABOUT NIKEDO -->
 
         <div class="box">
-
-            <h2>
-                💻 NIKEDO Self-Closing Laptop
-            </h2>
+            <h2>About the NIKEDO Laptop</h2>
 
             <p>
-                NIKEDO is an innovative laptop concept designed to help
-                protect the device and improve convenience. The laptop
-                uses a camera or sensor to detect whether the user is
-                still present in front of the device.
+                NIKEDO is our DIY laptop innovation. We wanted to explore
+                how a laptop could open and close with less effort while
+                combining useful features in one design. Our prototype
+                includes a laptop body made from simple materials, a side
+                button for the opening mechanism, a pop-up camera concept,
+                and an internal cooling setup.
             </p>
-
         </div>
-
 
         <!-- PURPOSE -->
 
         <div class="box">
-
-            <h2>
-                🎯 Purpose of the Innovation
-            </h2>
+            <h2>Purpose of the Innovation</h2>
 
             <p>
-                The main purpose of NIKEDO is to create a laptop that
-                can automatically close when the user leaves. This can
-                help prevent the laptop from being left open and can
-                provide an additional layer of convenience for users.
+                We created NIKEDO to explore a different and more convenient
+                way to use a laptop. The idea is to make opening and closing
+                easier and to bring user detection and cooling into one
+                concept. The prototype helps us present the design and the
+                features we want to develop.
             </p>
-
         </div>
 
-
-        <!-- HOW IT WORKS -->
+        <!-- KEY FEATURES -->
 
         <div class="box">
-
-            <h2>
-                ⚙️ How It Works
-            </h2>
+            <h2>Key Features</h2>
 
             <div class="steps">
 
-
-                <!-- STEP 1 -->
-
                 <div class="step">
-
-                    <h3>
-                        1. User Detection
-                    </h3>
-
+                    <h3>Automatic Opening</h3>
                     <p>
-                        A camera or sensor detects whether the user is
-                        present in front of the laptop.
+                        A button on the side is intended to start the
+                        laptop's opening mechanism.
                     </p>
-
                 </div>
 
-
-                <!-- STEP 2 -->
-
                 <div class="step">
-
-                    <h3>
-                        2. One-Minute Timer
-                    </h3>
-
+                    <h3>Pop-Up Camera</h3>
                     <p>
-                        If the system detects that the user has left,
-                        it starts a one-minute timer.
+                        Before the closing process, the camera mechanism
+                        is designed to rise from the back of the laptop.
                     </p>
-
                 </div>
 
-
-                <!-- STEP 3 -->
-
                 <div class="step">
-
-                    <h3>
-                        3. Automatic Closing
-                    </h3>
-
+                    <h3>User Detection</h3>
                     <p>
-                        If the user does not return after one minute,
-                        the laptop is designed to automatically fold
-                        or close.
+                        The concept is designed to detect when the user
+                        is no longer in front of the laptop.
                     </p>
-
                 </div>
 
-
-                <!-- STEP 4 -->
+                <div class="step">
+                    <h3>Automatic Closing</h3>
+                    <p>
+                        If no user is detected and the waiting time ends,
+                        the laptop is intended to close automatically.
+                    </p>
+                </div>
 
                 <div class="step">
-
-                    <h3>
-                        4. User Returns
-                    </h3>
-
+                    <h3>Integrated Cooling</h3>
                     <p>
-                        If the user returns before the timer finishes,
-                        the closing process can be stopped.
+                        The design also includes internal laptop components
+                        and a cooling fan in one setup.
                     </p>
+                </div>
 
+                <div class="step">
+                    <h3>Compact Concept</h3>
+                    <p>
+                        The project explores combining several useful
+                        features in one laptop design.
+                    </p>
                 </div>
 
             </div>
 
+            <p class="note">
+                NIKEDO is currently a DIY prototype. Features described
+                as automatic represent the intended design and should
+                only be presented as fully working when demonstrated
+                on the actual model.
+            </p>
         </div>
 
+        <!-- HOW IT WORKS -->
+
+        <div class="box">
+            <h2>How It Is Designed to Work</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <h3>1. Press the Side Button</h3>
+                    <p>
+                        The user presses the button on the side to start
+                        the opening mechanism.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>2. Detect the User</h3>
+                    <p>
+                        The detection system checks whether someone is
+                        still in front of the laptop.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>3. Raise the Camera</h3>
+                    <p>
+                        When no user is detected, the camera at the back
+                        is designed to rise before closing begins.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>4. Close the Laptop</h3>
+                    <p>
+                        After the set waiting time, the laptop is intended
+                        to close if the user has not returned.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MATERIALS AND TOOLS -->
+
+        <div class="box">
+            <h2>Materials and Tools Used</h2>
+
+            <p>
+                We used simple materials and tools to build the body and
+                details of our DIY laptop. The list below can be adjusted
+                to match everything used in the actual build.
+            </p>
+
+            <div class="materials-grid">
+
+                <div class="materials-list">
+                    <h3>Materials</h3>
+
+                    <ul>
+                        <li>Cardboard for the laptop body and structure</li>
+                        <li>Colored paper for covering and decoration</li>
+                        <li>Small sticks for support or structural details</li>
+                        <li>Glue sticks for attaching parts</li>
+                        <li>Printed keyboard and touchpad designs</li>
+                        <li>Printed NIKEDO logo and QR code</li>
+                        <li>Motherboard or internal laptop components</li>
+                        <li>Cooling fan</li>
+                    </ul>
+                </div>
+
+                <div class="materials-list">
+                    <h3>Tools</h3>
+
+                    <ul>
+                        <li>Glue gun for joining parts</li>
+                        <li>Scissors for cutting paper and materials</li>
+                        <li>Cutter for shaping cardboard</li>
+                        <li>Ruler for measuring and alignment</li>
+                    </ul>
+
+                    <p class="note">
+                        Use cutting tools and a hot glue gun carefully,
+                        with adult supervision when needed.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PROTOTYPE GALLERY -->
+
+        <div class="box">
+            <h2>NIKEDO Prototype Gallery</h2>
+
+            <p>
+                These photos show our actual DIY laptop prototype,
+                including its outer design, screen, keyboard, and touchpad.
+                We built the model using simple materials to bring our
+                idea to life.
+            </p>
+
+            <div class="gallery">
+
+                <figure>
+                    <img src="nikedo-prototype-1.png"
+                         alt="NIKEDO DIY laptop prototype showing the outer body">
+
+                    <figcaption>
+                        Prototype view showing the handmade laptop body
+                        and overall design.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="nikedo-prototype-2.png"
+                         alt="NIKEDO DIY laptop prototype showing its side and thickness">
+
+                    <figcaption>
+                        Side view showing the thickness and structure
+                        of the prototype.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="nikedo-prototype-3.png"
+                         alt="NIKEDO DIY laptop prototype showing the screen and keyboard">
+
+                    <figcaption>
+                        Front view showing the screen, keyboard,
+                        and touchpad details.
+                    </figcaption>
+                </figure>
+
+            </div>
+        </div>
 
         <!-- BENEFITS -->
 
         <div class="box">
-
-            <h2>
-                💡 Benefits
-            </h2>
+            <h2>Benefits of the Design</h2>
 
             <p>
-
-                • Helps prevent the laptop from being left open.
-                <br><br>
-
-                • Provides a convenient automatic closing feature.
-                <br><br>
-
-                • Can help improve user awareness and device care.
-                <br><br>
-
-                • Introduces a creative combination of sensors and
-                automatic movement technology.
-
+                The NIKEDO concept explores how automatic opening and
+                closing could make laptop use more convenient. The
+                pop-up camera adds a distinctive feature to the closing
+                sequence, while the cooling fan is included to help
+                manage heat from the internal components. Bringing
+                these ideas together gives us one prototype to
+                demonstrate and improve.
             </p>
-
         </div>
 
-
-        <!-- PROTOTYPE -->
+        <!-- FUTURE IMPROVEMENTS -->
 
         <div class="box">
-
-            <h2>
-                📦 Prototype
-            </h2>
+            <h2>Future Improvements</h2>
 
             <p>
-                For our prototype, we can create a physical model of
-                the laptop using cardboard and other available materials.
-                The prototype will demonstrate the concept of a laptop
-                that can detect when the user is absent and automatically
-                close after one minute.
+                Our next steps are to improve the opening and closing
+                mechanism, test the user-detection system, and check
+                how the pop-up camera can work safely with the moving
+                parts. We also want to test the cooling fan and internal
+                components, improve the outside finish, and make sure
+                the features work reliably before presenting the
+                concept as a fully functional laptop.
             </p>
-
         </div>
-
-
-        <!-- FUTURE DEVELOPMENT -->
-
-        <div class="box">
-
-            <h2>
-                🚀 Future Development
-            </h2>
-
-            <p>
-                In the future, the NIKEDO concept could be improved by
-                using real sensors, a motorized hinge, and a programmed
-                control system. These components could allow the concept
-                to move from a simple prototype into a functional device.
-            </p>
-
-        </div>
-
 
         <!-- BACK BUTTON -->
 
         <a href="welcome.html"
            class="back"
            onclick="playAndGo(event, 'welcome.html')">
-
             ← Back to Home
-
         </a>
-
 
     </section>
 
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
     <footer>
-
         © 2026 NIKEDO. All Rights Reserved.
-
     </footer>
 
-
-    <!-- =========================
-         SOUND SCRIPT
-    ========================= -->
+    <!-- SOUND SCRIPT -->
 
     <script>
-
         function playAndGo(event, page) {
-
             event.preventDefault();
 
-            const sound =
-                document.getElementById("nikedoSound");
+            const sound = document.getElementById("nikedoSound");
 
             sound.volume = 0.35;
-
             sound.currentTime = 0;
 
             sound.play()
-
                 .then(() => {
-
                     sound.onended = function() {
-
                         window.location.href = page;
-
                     };
-
                 })
-
                 .catch(error => {
-
                     console.log("Sound error:", error);
-
                     window.location.href = page;
-
                 });
-
         }
-
     </script>
 
-
 </body>
-
 </html>
