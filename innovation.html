@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIKEDO Innovation</title>
+    <meta name="description" content="Discover the NIKEDO DIY laptop prototype, its design features, materials, construction, and future improvements.">
+    <title>NIKEDO | Innovation</title>
 
     <style>
         * {
@@ -15,9 +16,14 @@
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #0f0f14;
             color: white;
+            line-height: 1.7;
         }
 
         /* NAVIGATION */
@@ -42,7 +48,6 @@
             font-size: 24px;
             font-weight: bold;
             text-decoration: none;
-            cursor: pointer;
             transition: 0.3s;
         }
 
@@ -61,14 +66,20 @@
             border-radius: 8px;
         }
 
-        nav a {
+        nav > div {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav > div a {
             color: white;
             text-decoration: none;
-            margin-left: 25px;
             transition: 0.3s;
         }
 
-        nav a:hover {
+        nav > div a:hover,
+        nav > div a.active {
             color: #ff5fa2;
         }
 
@@ -76,7 +87,7 @@
 
         .hero {
             text-align: center;
-            padding: 80px 20px 50px;
+            padding: 85px 20px 65px;
             background:
                 radial-gradient(
                     circle at 50% 35%,
@@ -86,26 +97,52 @@
                 );
         }
 
+        .eyebrow {
+            color: #ff82b6;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
         .hero h1 {
             color: #ff5fa2;
-            font-size: 45px;
-            margin-bottom: 15px;
+            font-size: clamp(34px, 5vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 18px;
         }
 
         .hero p {
             color: #ccc;
-            max-width: 750px;
+            max-width: 760px;
             margin: auto;
-            line-height: 1.8;
-            font-size: 18px;
+            font-size: 17px;
+            line-height: 1.9;
         }
 
-        /* MAIN SECTIONS */
+        .hero-link {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 11px 20px;
+            border: 1px solid #ff5fa2;
+            border-radius: 8px;
+            color: #ff82b6;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .hero-link:hover {
+            background: #ff5fa2;
+            color: white;
+        }
+
+        /* MAIN CONTENT */
 
         .section {
             max-width: 1100px;
-            margin: 30px auto;
-            padding: 20px;
+            margin: 35px auto;
+            padding: 0 20px;
         }
 
         .box {
@@ -116,52 +153,163 @@
             border: 1px solid #252530;
         }
 
-        .box h2 {
+        .section-heading {
+            margin-bottom: 20px;
+        }
+
+        .section-heading span {
+            color: #ff82b6;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
             color: #ff5fa2;
-            margin-bottom: 15px;
-            font-size: 25px;
+            font-size: 26px;
+            margin-top: 5px;
+            line-height: 1.4;
         }
 
         .box > p {
-            color: #ddd;
+            color: #d0d0d8;
+            line-height: 1.9;
+        }
+
+        /* PROJECT OVERVIEW */
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .overview-details {
+            display: grid;
+            gap: 14px;
+        }
+
+        .detail {
+            background: #1b1b24;
+            border: 1px solid #292936;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .detail h3 {
+            color: #ff82b6;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .detail p {
+            color: #c9c9d2;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* FEATURES */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .feature {
+            background: #1b1b24;
+            border: 1px solid #292936;
+            border-radius: 12px;
+            padding: 22px;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            border-color: #ff5fa2;
+            transform: translateY(-4px);
+        }
+
+        .feature-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: rgba(255, 95, 162, 0.12);
+            color: #ff82b6;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        .feature h3 {
+            color: #ff5fa2;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .feature p {
+            color: #ccc;
+            font-size: 14px;
             line-height: 1.8;
         }
 
-        /* FEATURE AND STEP CARDS */
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .step {
-            background: #1b1b24;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #292936;
-        }
-
-        .step h3 {
-            color: #ff5fa2;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .step p {
-            color: #ccc;
-            line-height: 1.7;
-        }
-
         .note {
-            margin-top: 20px;
-            padding: 15px 18px;
+            margin-top: 22px;
+            padding: 16px 18px;
             border-left: 3px solid #ff5fa2;
             background: rgba(255, 95, 162, 0.06);
-            color: #ccc;
-            line-height: 1.7;
+            color: #d0d0d8;
             border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* DESIGN PROCESS */
+
+        .process-list {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .process-item {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 16px;
+            align-items: start;
+            padding: 18px;
+            background: #1b1b24;
+            border: 1px solid #292936;
+            border-radius: 12px;
+        }
+
+        .process-number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #ff5fa2;
+            color: white;
+            font-weight: bold;
+        }
+
+        .process-item h3 {
+            color: #ff82b6;
+            margin-bottom: 5px;
+            font-size: 17px;
+        }
+
+        .process-item p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.8;
         }
 
         /* MATERIALS */
@@ -175,7 +323,7 @@
 
         .materials-list {
             background: #1b1b24;
-            padding: 22px;
+            padding: 23px;
             border-radius: 12px;
             border: 1px solid #292936;
         }
@@ -186,22 +334,25 @@
         }
 
         .materials-list ul {
-            padding-left: 20px;
+            padding-left: 21px;
             color: #ccc;
-            line-height: 1.9;
+            line-height: 2;
         }
 
-        /* PROTOTYPE GALLERY */
+        .materials-list li {
+            padding-left: 3px;
+        }
+
+        /* GALLERY */
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
-            margin-top: 20px;
+            margin-top: 22px;
         }
 
         .gallery figure {
-            margin: 0;
             background: #1b1b24;
             border: 1px solid #292936;
             border-radius: 12px;
@@ -210,9 +361,8 @@
         }
 
         .gallery figure:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: #ff5fa2;
-            box-shadow: 0 8px 25px rgba(255, 95, 162, 0.12);
         }
 
         .gallery img {
@@ -224,17 +374,49 @@
         }
 
         .gallery figcaption {
-            padding: 14px;
+            padding: 16px;
             color: #ccc;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .gallery figcaption strong {
+            display: block;
+            color: #ff82b6;
+            margin-bottom: 5px;
+        }
+
+        /* BENEFITS AND FUTURE */
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .info-panel {
+            background: #1b1b24;
+            border: 1px solid #292936;
+            border-radius: 12px;
+            padding: 23px;
+        }
+
+        .info-panel h3 {
+            color: #ff5fa2;
+            margin-bottom: 10px;
+        }
+
+        .info-panel p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.9;
         }
 
         /* BACK BUTTON */
 
         .back {
             display: inline-block;
-            margin: 20px 0 50px;
+            margin: 5px 0 55px;
             padding: 12px 22px;
             background: #ff5fa2;
             color: white;
@@ -253,65 +435,83 @@
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 28px 20px;
             color: #888;
             background: #15151d;
             border-top: 1px solid #292936;
+            font-size: 14px;
         }
 
-        /* MOBILE RESPONSIVE */
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .features-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         @media (max-width: 700px) {
             nav {
                 flex-direction: column;
                 gap: 15px;
-                padding: 18px 15px;
+                padding: 16px 15px;
             }
 
             nav > div {
-                display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                flex-wrap: wrap;
+                gap: 12px 18px;
             }
 
             nav > div a {
-                margin: 0;
                 font-size: 14px;
             }
 
             .hero {
-                padding: 55px 20px 40px;
-            }
-
-            .hero h1 {
-                font-size: 35px;
+                padding: 60px 20px 45px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 15px;
             }
 
             .section {
-                padding: 15px;
+                padding: 0 15px;
+                margin: 25px auto;
             }
 
             .box {
                 padding: 22px;
             }
 
-            .box h2 {
-                font-size: 22px;
+            .section-heading h2 {
+                font-size: 23px;
             }
 
-            .steps,
+            .features-grid,
             .materials-grid,
-            .gallery {
+            .gallery,
+            .two-column {
                 grid-template-columns: 1fr;
             }
 
-            .gallery img {
-                aspect-ratio: 4 / 3;
+            .process-item {
+                grid-template-columns: 40px 1fr;
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .process-number {
+                width: 36px;
+                height: 36px;
             }
         }
     </style>
@@ -328,15 +528,11 @@
     <!-- NAVIGATION -->
 
     <nav>
-
         <a href="index.html"
            class="logo"
            onclick="playAndGo(event, 'index.html')">
 
-            <img src="Nikedo.jpg"
-                 alt="NIKEDO Logo"
-                 class="nav-logo">
-
+            <img src="Nikedo.jpg" alt="NIKEDO Logo" class="nav-logo">
             <span>NIKEDO</span>
         </a>
 
@@ -357,292 +553,399 @@
             </a>
 
             <a href="innovation.html"
+               class="active"
+               aria-current="page"
                onclick="playAndGo(event, 'innovation.html')">
                 Innovation
             </a>
         </div>
-
     </nav>
 
     <!-- HERO -->
 
-    <section class="hero">
-        <h1>Our Innovation</h1>
+    <header class="hero">
+        <p class="eyebrow">Design • Creativity • Technology</p>
+
+        <h1>Inside the NIKEDO Innovation</h1>
 
         <p>
-            Meet the NIKEDO DIY laptop concept: a design that explores
-            automatic opening and closing, a pop-up camera, and a cooling
-            fan in one project.
+            NIKEDO is our DIY laptop concept developed for our Media
+            Technology project. It explores how a laptop could combine
+            convenient opening and closing, a pop-up camera, user
+            detection, and cooling in one design.
         </p>
-    </section>
 
-    <!-- INNOVATION CONTENT -->
+        <a href="#prototype" class="hero-link">Explore Our Prototype ↓</a>
+    </header>
 
-    <section class="section">
+    <main class="section">
 
-        <!-- ABOUT NIKEDO -->
+        <!-- PROJECT OVERVIEW -->
 
-        <div class="box">
-            <h2>About the NIKEDO Laptop</h2>
+        <section class="box">
+            <div class="section-heading">
+                <span>01 / Project Overview</span>
+                <h2>The Idea Behind NIKEDO</h2>
+            </div>
 
-            <p>
-                NIKEDO is our DIY laptop innovation. We wanted to explore
-                how a laptop could open and close with less effort while
-                combining useful features in one design. Our prototype
-                includes a laptop body made from simple materials, a side
-                button for the opening mechanism, a pop-up camera concept,
-                and an internal cooling setup.
-            </p>
-        </div>
+            <div class="overview-grid">
+                <p>
+                    Our project focuses on creating a handmade laptop
+                    prototype that presents ideas for the future of
+                    personal computing. We used simple materials to
+                    represent the laptop's body and arranged its visible
+                    details to show how a more convenient design might
+                    look. The concept also includes ideas for an
+                    opening mechanism, a pop-up camera, user detection,
+                    and an internal cooling setup.
 
-        <!-- PURPOSE -->
+                    <br><br>
 
-        <div class="box">
-            <h2>Purpose of the Innovation</h2>
+                    Through this project, we learned how planning,
+                    creativity, teamwork, and practical construction
+                    can turn an idea into a physical model.
+                </p>
 
-            <p>
-                We created NIKEDO to explore a different and more convenient
-                way to use a laptop. The idea is to make opening and closing
-                easier and to bring user detection and cooling into one
-                concept. The prototype helps us present the design and the
-                features we want to develop.
-            </p>
-        </div>
+                <div class="overview-details">
+                    <div class="detail">
+                        <h3>Project Type</h3>
+                        <p>DIY laptop innovation prototype</p>
+                    </div>
+
+                    <div class="detail">
+                        <h3>Main Goal</h3>
+                        <p>Explore a more convenient laptop design</p>
+                    </div>
+
+                    <div class="detail">
+                        <h3>Design Approach</h3>
+                        <p>Handmade structure with proposed smart features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- KEY FEATURES -->
 
-        <div class="box">
-            <h2>Key Features</h2>
+        <section class="box">
+            <div class="section-heading">
+                <span>02 / Design Features</span>
+                <h2>What Makes Our Concept Different?</h2>
+            </div>
 
-            <div class="steps">
+            <p>
+                The following features describe the functions we want
+                the NIKEDO concept to have. Their actual operation
+                depends on the mechanisms and components installed
+                and tested in the prototype.
+            </p>
 
-                <div class="step">
+            <div class="features-grid">
+
+                <article class="feature">
+                    <span class="feature-number">01</span>
+                    <h3>Side Button</h3>
+                    <p>
+                        A button positioned on the side is intended
+                        to start the laptop's proposed opening process.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <span class="feature-number">02</span>
                     <h3>Automatic Opening</h3>
                     <p>
-                        A button on the side is intended to start the
-                        laptop's opening mechanism.
+                        The design explores a mechanism that could
+                        open the laptop with less manual effort.
                     </p>
-                </div>
+                </article>
 
-                <div class="step">
+                <article class="feature">
+                    <span class="feature-number">03</span>
                     <h3>Pop-Up Camera</h3>
                     <p>
-                        Before the closing process, the camera mechanism
-                        is designed to rise from the back of the laptop.
+                        A camera mechanism is planned to rise from
+                        the laptop body as part of the proposed design.
                     </p>
-                </div>
+                </article>
 
-                <div class="step">
+                <article class="feature">
+                    <span class="feature-number">04</span>
                     <h3>User Detection</h3>
                     <p>
-                        The concept is designed to detect when the user
-                        is no longer in front of the laptop.
+                        A detection system is intended to check
+                        whether the user is still in front of the laptop.
                     </p>
-                </div>
+                </article>
 
-                <div class="step">
+                <article class="feature">
+                    <span class="feature-number">05</span>
                     <h3>Automatic Closing</h3>
                     <p>
-                        If no user is detected and the waiting time ends,
-                        the laptop is intended to close automatically.
+                        The concept proposes closing the laptop after
+                        a set waiting period if no user is detected.
                     </p>
-                </div>
+                </article>
 
-                <div class="step">
-                    <h3>Integrated Cooling</h3>
+                <article class="feature">
+                    <span class="feature-number">06</span>
+                    <h3>Cooling Fan</h3>
                     <p>
-                        The design also includes internal laptop components
-                        and a cooling fan in one setup.
+                        A cooling fan is included in the internal
+                        setup to represent heat management in a laptop.
                     </p>
-                </div>
-
-                <div class="step">
-                    <h3>Compact Concept</h3>
-                    <p>
-                        The project explores combining several useful
-                        features in one laptop design.
-                    </p>
-                </div>
+                </article>
 
             </div>
 
             <p class="note">
-                NIKEDO is currently a DIY prototype. Features described
-                as automatic represent the intended design and should
-                only be presented as fully working when demonstrated
-                on the actual model.
+                <strong>Prototype note:</strong>
+                These descriptions explain the intended design.
+                Only features that have been physically demonstrated
+                and tested should be described as fully functional.
             </p>
-        </div>
+        </section>
 
-        <!-- HOW IT WORKS -->
+        <!-- PROPOSED OPERATING SEQUENCE -->
 
-        <div class="box">
-            <h2>How It Is Designed to Work</h2>
+        <section class="box">
+            <div class="section-heading">
+                <span>03 / Proposed Process</span>
+                <h2>How the Concept Is Intended to Work</h2>
+            </div>
 
-            <div class="steps">
+            <p>
+                This sequence explains the planned operation of the
+                NIKEDO laptop concept. It is a design description,
+                not a claim that every automatic function is already
+                working in the physical prototype.
+            </p>
 
-                <div class="step">
-                    <h3>1. Press the Side Button</h3>
-                    <p>
-                        The user presses the button on the side to start
-                        the opening mechanism.
-                    </p>
+            <div class="process-list">
+
+                <div class="process-item">
+                    <span class="process-number">1</span>
+                    <div>
+                        <h3>Start with the Side Button</h3>
+                        <p>
+                            The user presses the side button to initiate
+                            the proposed opening mechanism.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <h3>2. Detect the User</h3>
-                    <p>
-                        The detection system checks whether someone is
-                        still in front of the laptop.
-                    </p>
+                <div class="process-item">
+                    <span class="process-number">2</span>
+                    <div>
+                        <h3>Monitor User Presence</h3>
+                        <p>
+                            The planned detection system checks whether
+                            someone remains in front of the laptop.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <h3>3. Raise the Camera</h3>
-                    <p>
-                        When no user is detected, the camera at the back
-                        is designed to rise before closing begins.
-                    </p>
+                <div class="process-item">
+                    <span class="process-number">3</span>
+                    <div>
+                        <h3>Begin the Closing Sequence</h3>
+                        <p>
+                            If the user is no longer detected after
+                            the intended waiting period, the system
+                            would begin the proposed closing sequence.
+                            The pop-up camera is another design feature
+                            intended to work with the mechanism.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <h3>4. Close the Laptop</h3>
-                    <p>
-                        After the set waiting time, the laptop is intended
-                        to close if the user has not returned.
-                    </p>
+                <div class="process-item">
+                    <span class="process-number">4</span>
+                    <div>
+                        <h3>Close the Laptop</h3>
+                        <p>
+                            The intended final step is to close the
+                            laptop when the user has not returned.
+                            The timing and moving parts would need
+                            to be tested for safe and reliable operation.
+                        </p>
+                    </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
         <!-- MATERIALS AND TOOLS -->
 
-        <div class="box">
-            <h2>Materials and Tools Used</h2>
+        <section class="box">
+            <div class="section-heading">
+                <span>04 / Construction</span>
+                <h2>Materials and Tools</h2>
+            </div>
 
             <p>
-                We used simple materials and tools to build the body and
-                details of our DIY laptop. The list below can be adjusted
-                to match everything used in the actual build.
+                The prototype uses simple materials to represent the
+                laptop body and its details. Review this list and keep
+                only the items that your group actually used.
             </p>
 
             <div class="materials-grid">
 
                 <div class="materials-list">
                     <h3>Materials</h3>
-
                     <ul>
-                        <li>Cardboard for the laptop body and structure</li>
-                        <li>Colored paper for covering and decoration</li>
-                        <li>Small sticks for support or structural details</li>
-                        <li>Glue sticks for attaching parts</li>
+                        <li>Cardboard for the laptop structure</li>
+                        <li>Colored paper for the outer covering</li>
+                        <li>Small sticks for support, if used</li>
+                        <li>Glue sticks for attaching materials</li>
                         <li>Printed keyboard and touchpad designs</li>
                         <li>Printed NIKEDO logo and QR code</li>
-                        <li>Motherboard or internal laptop components</li>
-                        <li>Cooling fan</li>
+                        <li>Motherboard or internal components, if installed</li>
+                        <li>Cooling fan, if installed</li>
                     </ul>
                 </div>
 
                 <div class="materials-list">
                     <h3>Tools</h3>
-
                     <ul>
-                        <li>Glue gun for joining parts</li>
-                        <li>Scissors for cutting paper and materials</li>
+                        <li>Ruler for measuring</li>
+                        <li>Scissors for cutting paper</li>
                         <li>Cutter for shaping cardboard</li>
-                        <li>Ruler for measuring and alignment</li>
+                        <li>Glue gun for joining parts, if used</li>
                     </ul>
 
                     <p class="note">
-                        Use cutting tools and a hot glue gun carefully,
-                        with adult supervision when needed.
+                        Handle cutters and hot glue guns carefully.
+                        Ask a teacher or adult for supervision when needed.
                     </p>
                 </div>
 
             </div>
-        </div>
+        </section>
 
         <!-- PROTOTYPE GALLERY -->
 
-        <div class="box">
-            <h2>NIKEDO Prototype Gallery</h2>
+        <section class="box" id="prototype">
+            <div class="section-heading">
+                <span>05 / Our Actual Model</span>
+                <h2>NIKEDO Prototype Gallery</h2>
+            </div>
 
             <p>
-                These photos show our actual DIY laptop prototype,
-                including its outer design, screen, keyboard, and touchpad.
-                We built the model using simple materials to bring our
-                idea to life.
+                These gallery spaces are for photographs of our actual
+                handmade laptop. Each view highlights a different part
+                of the model and how we presented our design.
             </p>
 
             <div class="gallery">
 
                 <figure>
-                    <img src="nikedo-prototype-1.png"
-                         alt="NIKEDO DIY laptop prototype showing the outer body">
+                    <img
+                        src="nikedo-prototype-1.png"
+                        alt="Outer body of the NIKEDO DIY laptop prototype"
+                        loading="lazy">
 
                     <figcaption>
-                        Prototype view showing the handmade laptop body
-                        and overall design.
+                        <strong>01. Outer Design</strong>
+                        Shows the handmade laptop body and its overall
+                        appearance.
                     </figcaption>
                 </figure>
 
                 <figure>
-                    <img src="nikedo-prototype-2.png"
-                         alt="NIKEDO DIY laptop prototype showing its side and thickness">
+                    <img
+                        src="nikedo-prototype-2.png"
+                        alt="Side view of the NIKEDO laptop prototype"
+                        loading="lazy">
 
                     <figcaption>
-                        Side view showing the thickness and structure
-                        of the prototype.
+                        <strong>02. Side View</strong>
+                        Shows the thickness and structure of the
+                        handmade model.
                     </figcaption>
                 </figure>
 
                 <figure>
-                    <img src="nikedo-prototype-3.png"
-                         alt="NIKEDO DIY laptop prototype showing the screen and keyboard">
+                    <img
+                        src="nikedo-prototype-3.png"
+                        alt="Front view of the NIKEDO laptop with screen and keyboard"
+                        loading="lazy">
 
                     <figcaption>
-                        Front view showing the screen, keyboard,
-                        and touchpad details.
+                        <strong>03. Front View</strong>
+                        Shows the screen, keyboard, and touchpad details.
                     </figcaption>
                 </figure>
 
             </div>
-        </div>
 
-        <!-- BENEFITS -->
+            <p class="note">
+                Make sure the three image files are uploaded to the
+                same GitHub repository location as this HTML file.
+                If your actual filenames are different, update the
+                corresponding image paths above.
+            </p>
+        </section>
 
-        <div class="box">
-            <h2>Benefits of the Design</h2>
+        <!-- BENEFITS AND FUTURE IMPROVEMENTS -->
+
+        <section class="box">
+            <div class="section-heading">
+                <span>06 / Evaluation</span>
+                <h2>Benefits and Future Improvements</h2>
+            </div>
+
+            <div class="two-column">
+
+                <article class="info-panel">
+                    <h3>Potential Benefits</h3>
+                    <p>
+                        The proposed design explores how automatic
+                        opening and closing could make laptop use
+                        more convenient. User detection could support
+                        the closing process, while the pop-up camera
+                        gives the concept a distinctive feature.
+                        The cooling fan represents the importance
+                        of managing heat in a computer.
+                    </p>
+                </article>
+
+                <article class="info-panel">
+                    <h3>What We Can Improve</h3>
+                    <p>
+                        Future development could focus on testing
+                        the opening and closing mechanism, improving
+                        user detection, checking the camera movement,
+                        and evaluating the cooling setup. We could
+                        also improve the laptop's outer finish and
+                        test the moving parts for safety and reliability.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CONCLUSION -->
+
+        <section class="box">
+            <div class="section-heading">
+                <span>07 / Project Reflection</span>
+                <h2>Turning an Idea into a Prototype</h2>
+            </div>
 
             <p>
-                The NIKEDO concept explores how automatic opening and
-                closing could make laptop use more convenient. The
-                pop-up camera adds a distinctive feature to the closing
-                sequence, while the cooling fan is included to help
-                manage heat from the internal components. Bringing
-                these ideas together gives us one prototype to
-                demonstrate and improve.
+                Creating NIKEDO helped us explore how a technology
+                idea can be represented through a physical model.
+                It gave our group an opportunity to apply creativity,
+                organize materials, and think about how different
+                laptop features might work together. Although the
+                concept still has room for development and testing,
+                the prototype gives us a starting point for future
+                improvements.
             </p>
-        </div>
+        </section>
 
-        <!-- FUTURE IMPROVEMENTS -->
-
-        <div class="box">
-            <h2>Future Improvements</h2>
-
-            <p>
-                Our next steps are to improve the opening and closing
-                mechanism, test the user-detection system, and check
-                how the pop-up camera can work safely with the moving
-                parts. We also want to test the cooling fan and internal
-                components, improve the outside finish, and make sure
-                the features work reliably before presenting the
-                concept as a fully functional laptop.
-            </p>
-        </div>
-
-        <!-- BACK BUTTON -->
+        <!-- BACK TO HOME -->
 
         <a href="welcome.html"
            class="back"
@@ -650,15 +953,15 @@
             ← Back to Home
         </a>
 
-    </section>
+    </main>
 
     <!-- FOOTER -->
 
     <footer>
-        © 2026 NIKEDO. All Rights Reserved.
+        © 2026 NIKEDO | Media Technology Project
     </footer>
 
-    <!-- SOUND SCRIPT -->
+    <!-- CLICK SOUND SCRIPT -->
 
     <script>
         function playAndGo(event, page) {
@@ -666,19 +969,23 @@
 
             const sound = document.getElementById("nikedoSound");
 
-            sound.volume = 0.35;
-            sound.currentTime = 0;
+            if (!sound) {
+                window.location.href = page;
+                return;
+            }
 
-            sound.play()
-                .then(() => {
-                    sound.onended = function() {
-                        window.location.href = page;
-                    };
-                })
-                .catch(error => {
-                    console.log("Sound error:", error);
-                    window.location.href = page;
-                });
+            sound.pause();
+            sound.currentTime = 0;
+            sound.volume = 0.35;
+
+            sound.onended = function () {
+                window.location.href = page;
+            };
+
+            sound.play().catch(function (error) {
+                console.log("Sound error:", error);
+                window.location.href = page;
+            });
         }
     </script>
 
